@@ -42,4 +42,22 @@ public class Circle {
     public double area() {
         return this.radius * this.radius * Math.PI;
     }
+
+    public boolean contains(Point p) {
+        return this.center.distance(p) <= this.getRadius();
+    }
+
+    public boolean contains(int x, int y) {
+        Point p = new Point(x, y);
+        return this.contains(p);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Circle) {
+            Circle circle = (Circle) object;
+            return this.center.equals(circle.center) && this.radius == circle.radius;
+        }
+        return false;
+    }
 }

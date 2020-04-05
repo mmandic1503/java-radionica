@@ -45,4 +45,12 @@ public class Point {
         return Math.sqrt(px * px + py * py);
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Point) {
+            Point point = (Point) object;
+            return this.x == point.x && this.y == point.y;
+        }
+        return false;
+    }
 }

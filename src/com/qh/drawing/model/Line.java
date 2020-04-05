@@ -34,5 +34,13 @@ public class Line {
         return startPoint.distance(endPoint);
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Line) {
+            Line line = (Line) object;
+            return this.startPoint.equals(line.startPoint);
+        }
+        return false;
+    }
 
 }

@@ -4,6 +4,8 @@ import com.qh.drawing.model.Circle;
 import com.qh.drawing.model.Point;
 import com.qh.drawing.model.Rectangle;
 
+import java.util.Scanner;
+
 public class TestGeometry {
 
     public static void main(String[] args) {
@@ -30,5 +32,18 @@ public class TestGeometry {
 
         Rectangle rectangle = new Rectangle(p1, 4, 6);
         System.out.println("Rectangle area is: " + rectangle.area());
+
+        System.out.println("Upisite parametre za kreiranje tacke:");
+        Scanner scanner = new Scanner(System.in);
+        String pointInput = scanner.nextLine();
+        String[] coordinates = pointInput.split(" ");
+        int inputX = Integer.parseInt(coordinates[0]);
+        int inputY = Integer.parseInt(coordinates[1]);
+        boolean selected = false;
+        if (coordinates.length == 3) {
+            selected = Boolean.parseBoolean(coordinates[2]);
+        }
+        Point pointFromInput = new Point(inputX, inputY, selected);
+        System.out.println("x=" + pointFromInput.getX() + ", y=" + pointFromInput.getY() + ", selected=" + pointFromInput.isSelected());
     }
 }
